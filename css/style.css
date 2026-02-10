@@ -1,71 +1,70 @@
-.arabiheritage {
-    font-family: 'Amiri', serif;
-    color: #3e2723;
-    background-color: #f5f5f5;
-    direction: rtl;
-    text-align: right;
-    padding: 20px;
+/* Desert-themed Styles */
+body {
+    background: linear-gradient(135deg, #d9c9a6 20%, #eae3dc 100%);
+    font-family: 'Arial', sans-serif;
+    color: #4e4b47;
     margin: 0;
+    padding: 0;
 }
 
-.header {
-    background-color: #fbc02d;
-    padding: 10px;
-    font-size: 24px;
-    transition: background-color 0.5s;
+/* Glassmorphism Effect */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.header:hover {
-    background-color: #f57f20;
-}
-
-.button {
-    background-color: #8d6e63;
-    color: #ffffff;
-    padding: 10px 15px;
+/* Button Styling */
+button {
+    background: linear-gradient(135deg, #f9d49b, #f9bc99);
     border: none;
-    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background 0.3s ease;
 }
 
-.button:hover {
-    background-color: #6d4c41;
-}
-
-.card {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    padding: 15px;
-    transition: transform 0.2s;
-}
-
-.card:hover {
+button:hover {
+    background: linear-gradient(135deg, #f9bc99, #f9d49b);
     transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-    .header {
-        font-size: 20px;
-    }
-    .button {
-        width: 100%;
-    }
-    .card {
-        margin: 10px;
-    }
-}
-
+/* Animation Example */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .fade-in {
-    animation: fadeIn 1s forwards;
+    animation: fadeIn 1s ease forwards;
 }
 
-/* Importing Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+/* Card Styles */
+.card {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Additional Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    button {
+        width: 100%;
+    }
+}
