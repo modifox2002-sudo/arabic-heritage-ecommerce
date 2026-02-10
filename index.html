@@ -3,33 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>التراث العربي للتجارة الإلكترونية</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="متجر التراث العربي الأصيل - ملابس بدوية وعطور عربية ومشغولات يدوية">
+    <title>تراثنا - متجر التراث العربي الأصيل</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Reem+Kufi:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">شعار المتجر</div>
-        <nav>
+    <!-- قائمة الملاحة الجانبية -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">تراثنا</h2>
+            <button class="close-btn" id="closeSidebar">✕</button>
+        </div>
+        <nav class="sidebar-nav">
             <ul>
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#products">المنتجات</a></li>
-                <li><a href="#about">معلومات عنا</a></li>
-                <li><a href="#contact">اتصل بنا</a></li>
+                <li><a href="#home">تراثنا</a></li>
+                <li><a href="#store">المتجر</a></li>
+                <li><a href="#categories">الأقسام</a></li>
+                <li><a href="#offers">العروض</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
             </ul>
         </nav>
+    </div>
+
+    <!-- طبقة الخلفية للقائمة الجانبية -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- الرأس (Header) -->
+    <header class="header">
+        <button class="menu-btn" id="menuBtn">☰</button>
+        <div class="logo">🐪 تراثنا</div>
+        <div class="header-icons">
+            <button class="search-btn">🔍</button>
+            <button class="cart-btn">🛒 <span class="cart-count">0</span></button>
+        </div>
     </header>
-    
-    <section id="hero-slider">
-        <!-- Slider implementation -->
+
+    <!-- شريط البطل (Hero Slider) -->
+    <section class="hero-slider" id="home">
+        <div class="slider-container">
+            <div class="slide slide-active">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1 class="slide-title">تراث بدوي أصيل</h1>
+                    <p class="slide-text">استشعر روح الصحراء في كل منتج من منتجاتنا</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1 class="slide-title">صناعة يدوية عربية</h1>
+                    <p class="slide-text">حرفية تقليدية تحكي قصة الأجيال والحضارة</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1 class="slide-title">عطور الصحراء الفاخرة</h1>
+                    <p class="slide-text">روائح تجسد جمال وأصالة التراث العربي</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1 class="slide-title">خيام ومشغولات تراثية</h1>
+                    <p class="slide-text">ديكورات أصيلة تعكس عراقة الحضارة العربية</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+            <span class="dot" onclick="goToSlide(3)"></span>
+        </div>
+
+        <button class="slider-arrow slider-arrow-prev" onclick="prevSlide()">❮</button>
+        <button class="slider-arrow slider-arrow-next" onclick="nextSlide()">❯</button>
     </section>
-    
-    <section id="products">
-        <h2>منتجاتنا</h2>
-        <!-- Product items will be listed here -->
+
+    <!-- فاصل زخرفي -->
+    <div class="ornament-divider">
+        ◆ ◇ ◆
+    </div>
+
+    <!-- قسم المميزات -->
+    <section class="features-section">
+        <h2 class="section-title">مميزات متجرنا</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">✋</div>
+                <h3>صناعة يدوية</h3>
+                <p>كل منتج مصنوع بحب وإتقان على أيدي حرفيين ماهرين</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👑</div>
+                <h3>تراث أصيل</h3>
+                <p>نحافظ على الموروث العربي الذي يعكس هويتنا الحقيقية</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h3>جودة عالية</h3>
+                <p>مواد طبيعية وخامات فاخرة في كل منتج</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3>توصيل سريع</h3>
+                <p>نوصل طلبيتك بأمان وسرعة إلى عتبة منزلك</p>
+            </div>
+        </div>
     </section>
-    
-    <footer>
-        <p>جميع الحقوق محفوظة &copy; 2026 التراث العربي</p>
+
+    <!-- فاصل زخرفي -->
+    <div class="ornament-divider">
+        ◆ ◇ ◆
+    </div>
+
+    <!-- قسم المتجر والمنتجات -->
+    <section class="store-section" id="store">
+        <h2 class="section-title">متجرنا</h2>
+
+        <!-- قسم الملابس البدوية -->
+        <div class="category-section" id="categories">
+            <h3 class="category-title">👗 ملابس بدوية فاخرة</h3>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">👗</div>
+                    <h4 class="product-name">عباية بدوية فاخرة</h4>
+                    <p class="product-description">عباية تقليدية من خيوط طبيعية بنقوش بدوية أصيلة وجميلة</p>
+                    <div class="product-footer">
+                        <span class="product-price">180 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('عباية بدوية فاخرة', 180)">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">👔</div>
+                    <h4 class="product-name">غترة عربية تقليدية</h4>
+                    <p class="product-description">غترة فاخرة بأنماط هندسية تراثية عريقة وأصيلة</p>
+                    <div class="product-footer">
+                        <span class="product-price">95 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('غترة عربية تقليدية', 95)">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">👕</div>
+                    <h4 class="product-name">ثوب بدوي أصيل</h4>
+                    <p class="product-description">ثوب بدوي مصنوع من أجود الأقمشة الطبيعية الفاخرة</p>
+                    <div class="product-footer">
+                        <span class="product-price">210 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('ثوب بدوي أصيل', 210)">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🎽</div>
+                    <h4 class="product-name">دشداشة فاخرة</h4>
+                    <p class="product-description">دشداشة فاخرة بتفاصيل يدوية دقيقة وأنماط حصرية</p>
+                    <div class="product-footer">
+                        <span class="product-price">250 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('دشداشة فاخرة', 250)">أضف إلى السلة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم العطور العربية -->
+        <div class="category-section">
+            <h3 class="category-title">💐 عطور عربية فاخرة</h3>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">💐</div>
+                    <h4 class="product-name">عطر العود الفاخر</h4>
+                    <p class="product-description">عطر عود عربي أصيل بخلطة سرية من روح الصحراء</p>
+                    <div class="product-footer">
+                        <span class="product-price">320 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('عطر العود الفاخر', 320)">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🌹</div>
+                    <h4 class="product-name">عطر الورد الدمشقي</h4>
+                    <p class="product-description">عطر ورد دمشقي فاخر برائحة فريدة ممزوجة بالمسك</p>
+                    <div class="product-footer">
+                        <span class="product-price">280 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('عطر الورد الدمشقي', 280)">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🌿</div>
+                    <h4 class="product-name">بخور تقليدي أصيل</h4>
+                    <p class="product-description">بخور طبيعي من أفضل الأنواع العربية القديمة والنقية</p>
+                    <div class="product-footer">
+                        <span class="product-price">120 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('بخور تقليدي أصيل', 120)">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">✨</div>
+                    <h4 class="product-name">عطر الكمبودي الثمين</h4>
+                    <p class="product-description">عطر فاخر برائحة فريدة متوارثة عبر الأجيال القديمة</p>
+                    <div class="product-footer">
+                        <span class="product-price">450 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('عطر الكمبودي الثمين', 450)">أضف إلى السلة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم المشغولات اليدوية -->
+        <div class="category-section">
+            <h3 class="category-title">💍 مشغولات يدوية</h3>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">💍</div>
+                    <h4 class="product-name">خواتم فضية تراثية</h4>
+                    <p class="product-description">خواتم فضية مصنوعة يدوياً بنقوش بدوية أصيلة وجميلة</p>
+                    <div class="product-footer">
+                        <span class="product-price">150 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('خواتم فضية تراثية', 150)">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">📿</div>
+                    <h4 class="product-name">سبحة خشبية فاخرة</h4>
+                    <p class="product-description">سبحة من خشب الصندل الفاخر بخرزات نفيسة وغالية</p>
+                    <div class="product-footer">
+                        <span class="product-price">85 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('سبحة خشبية فاخرة', 85)">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🎨</div>
+                    <h4 class="product-name">آنية فخارية يدوية</h4>
+                    <p class="product-description">آنية فخارية مزخرفة برسومات وخطوط يدوية تراثية</p>
+                    <div class="product-footer">
+                        <span class="product-price">200 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('آنية فخارية يدوية', 200)">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🪵</div>
+                    <h4 class="product-name">صندوق خشبي منقوش</h4>
+                    <p class="product-description">صندوق خشبي أصيل منقوش بزخارف عربية حصرية وفريدة</p>
+                    <div class="product-footer">
+                        <span class="product-price">275 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('صندوق خشبي منقوش', 275)">أضف إلى السلة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم الخيام والزينة التراثية -->
+        <div class="category-section">
+            <h3 class="category-title">⛺ خيام وزينة تراثية</h3>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">⛺</div>
+                    <h4 class="product-name">خيمة بدوية صغيرة</h4>
+                    <p class="product-description">خيمة بدوية للديكور مصنوعة من أقمشة طبيعية فاخرة</p>
+                    <div class="product-footer">
+                        <span class="product-price">380 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('خيمة بدوية صغيرة', 380)">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🪔</div>
+                    <h4 class="product-name">فانوس عربي تقليدي</h4>
+                    <p class="product-description">فانوس معدني منقوش برسومات عربية أصيلة وجميلة</p>
+                    <div class="product-footer">
+                        <span class="product-price">165 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('فانوس عربي تقليدي', 165)">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🧵</div>
+                    <h4 class="product-name">سجادة بدوية يدوية</h4>
+                    <p class="product-description">سجادة حصرية مصنوعة يدوياً بأنماط بدوية تراثية أصيلة</p>
+                    <div class="product-footer">
+                        <span class="product-price">420 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('سجادة بدوية يدوية', 420)">أضف إلى السلة</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🪡</div>
+                    <h4 class="product-name">وسائد مزخرفة</h4>
+                    <p class="product-description">وسائد مزخرفة بأنسجة تقليدية وخيطان ملونة فاخرة</p>
+                    <div class="product-footer">
+                        <span class="product-price">195 ريال</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('وسائد مزخرفة', 195)">أضف إلى السلة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- فاصل زخرفي -->
+    <div class="ornament-divider">
+        ◆ ◇ ◆
+    </div>
+
+    <!-- قسم العروض -->
+    <section class="offers-section" id="offers">
+        <h2 class="section-title">عروضنا الخاصة</h2>
+        <div class="offers-banner">
+            <h3>خصم 30% على جميع الملابس البدوية</h3>
+            <p>لفترة محدودة فقط - لا تفوت هذه الفرصة الذهبية!</p>
+        </div>
+    </section>
+
+    <!-- فاصل زخرفي -->
+    <div class="ornament-divider">
+        ◆ ◇ ◆
+    </div>
+
+    <!-- قسم من نحن -->
+    <section class="about-section" id="about">
+        <h2 class="section-title">من نحن</h2>
+        <div class="about-content">
+            <p>
+                نحن متخصصون في حفظ وتقديم التراث العربي الأصيل من خلال منتجات فاخرة تعكس روح الحضارة العربية القديمة. 
+                كل منتج في متجرنا يحكي قصة الأجيال الماضية ويجسد روح البادية والصحراء العربية الجميلة والعريقة.
+            </p>
+            <p>
+                نؤمن أن التراث ليس مجرد ماضٍ جميل، بل هو جسر يربط أصالتنا بمستقبلنا المشرق. 
+                من خلال صناعتنا اليدوية الحرفية المتقنة، نحاول إحياء القيم والحرف التقليدية التي ورثناها من آبائنا وأجدادنا.
+            </p>
+        </div>
+    </section>
+
+    <!-- فاصل زخرفي -->
+    <div class="ornament-divider">
+        ◆ ◇ ◆
+    </div>
+
+    <!-- قسم التواصل -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">تواصل معنا</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <div class="contact-text">
+                    <h4>الهاتف</h4>
+                    <p>+966 50 123 4567</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <div class="contact-text">
+                    <h4>البريد الإلكتروني</h4>
+                    <p>info@turatuna.com</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <div class="contact-text">
+                    <h4>العنوان</h4>
+                    <p>الرياض - المملكة العربية السعودية</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">🕐</span>
+                <div class="contact-text">
+                    <h4>ساعات العمل</h4>
+                    <p>من 9 صباحاً إلى 6 مساءً</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="footer">
+        <p>© جميع الحقوق محفوظة – مجرة هوست | مهدي البطلي</p>
+        <p class="footer-year">2026</p>
     </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
