@@ -1,1 +1,72 @@
-// Sidebar Menu Toggle\nconst sidebarToggle = document.querySelector('.sidebar-toggle');\nconst sidebar = document.querySelector('.sidebar');\nsidebarToggle.addEventListener('click', () => {\n    sidebar.classList.toggle('active');\n});\n\n// Hero Slider Auto-Sliding\nlet currentSlide = 0;\nconst slides = document.querySelectorAll('.hero-slide');\nconst totalSlides = slides.length;\n\nfunction showSlide(index) {\n    slides.forEach(slide => {\n        slide.style.display = 'none';  \n    });\n    slides[index].style.display = 'block';  \n}\n\nfunction nextSlide() {\n    currentSlide = (currentSlide + 1) % totalSlides;\n    showSlide(currentSlide);\n}\n\nsetInterval(nextSlide, 5000); // Change slide every 5 seconds\n\n// Smooth Animations\nconst elementsToAnimate = document.querySelectorAll('.fade-in');\n\nconst observer = new IntersectionObserver((entries) => {\n    entries.forEach(entry => {\n        if (entry.isIntersecting) {\n            entry.target.classList.add('visible');\n            observer.unobserve(entry.target);\n        }\n    });\n}, { threshold: 0.1 });\nelementsToAnimate.forEach(element => {\n    observer.observe(element);\n});\n\n// Cart Functionality\nlet cart = [];\n\nfunction addToCart(item) {\n    cart.push(item);\n    updateCartDisplay();\n}\n\nfunction updateCartDisplay() {\n    const cartCount = document.querySelector('.cart-count');\n    cartCount.textContent = cart.length;\n}\n\n// Search Functionality\nconst searchInput = document.querySelector('.search-input');\nconst searchResults = document.querySelector('.search-results');\n\nsearchInput.addEventListener('input', () => {\n    const query = searchInput.value.toLowerCase();\n    // Assume a function `searchItems` exists that returns matching items\n    const results = searchItems(query);\n    displaySearchResults(results);\n});\n\nfunction displaySearchResults(results) {\n    searchResults.innerHTML = '';\n    results.forEach(result => {\n        const item = document.createElement('div');\n        item.textContent = result.name; // Display item name\n        searchResults.appendChild(item);\n    });\n}
+// JavaScript functionality for sidebar navigation, hero slider, cart management, search, and animations
+
+// Sidebar Navigation
+const sidebarToggle = document.getElementById('sidebar-toggle');
+const sidebar = document.getElementById('sidebar');
+
+sidebarToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+});
+
+// Hero Slider
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const totalSlides = slides.length;
+
+const nextSlide = () => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % totalSlides;
+    slides[currentSlide].classList.add('active');
+};
+
+setInterval(nextSlide, 3000);
+
+// Cart Management
+const cart = [];
+const addToCart = (item) => {
+    cart.push(item);
+    console.log(`Item added to cart: ${item}`);
+};
+
+const removeFromCart = (item) => {
+    const index = cart.indexOf(item);
+    if (index > -1) {
+        cart.splice(index, 1);
+        console.log(`Item removed from cart: ${item}`);
+    }
+};
+
+// Search Functionality
+const searchInput = document.getElementById('search-input');
+const searchResults = document.getElementById('search-results');
+
+searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    // Simulating search operation
+    // Assuming we have an array of products called products
+    const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm));
+    displaySearchResults(filteredProducts);
+});
+
+const displaySearchResults = (results) => {
+    searchResults.innerHTML = '';
+    results.forEach(product => {
+        const resultItem = document.createElement('div');
+        resultItem.textContent = product.name;
+        searchResults.appendChild(resultItem);
+    });
+};
+
+// Animations
+const elementsToAnimate = document.querySelectorAll('.animate');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+        }
+    });
+});
+
+elementsToAnimate.forEach(element => observer.observe(element));
